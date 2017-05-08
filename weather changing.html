@@ -1,0 +1,57 @@
+
+<head>
+<meta charset="UTF-8">
+<style>
+#display_here {
+ max-width: 500px;
+ text-align: center;
+ margin: auto;
+}
+h1 {
+color: blue;
+text-align: center;
+}
+
+ div {
+ max-width: 500px;
+ text-align: center;
+ margin: auto;
+ font-size : 14px;
+ font-family: Comic Sans MS, cursive, sans-serif;
+}
+ p {
+
+}
+
+</style>
+</head>
+<h1>Kakšno je danes vreme?:</h1>
+<div>
+<select name="choice" id="choice" size="3" onchange="showImage(this.value)">
+    <option value="0">Sončno</option>
+    <option value="1">Vetrovno</option>
+    <option value="2">Deževno</option>
+</select>
+</div>
+<div id="display_here"></div>
+
+<script>
+function showImage(userChoice) {
+    var output = document.getElementById("display_here");
+    output.innerHTML = "";
+    
+    var links = [
+        "http://www.nutmums.com/wp-content/uploads/2014/07/nut-free-ice-cream.jpg",
+        "http://www.actionsportasia.com/wp-content/uploads/2016/08/boracay-windsurf-400x400.jpg",
+        "http://31.media.tumblr.com/450f913c858c57402b4a123b1eadb9c0/tumblr_mv45yqhokF1si78xro1_500.jpg",
+    ];
+    var senttext = ['Danes je lep dan. Pelji Šećerkota, Samro in mamo na sprehod. Kupi jim sladoled',
+	'Juhuhu, končno veter!. Hitro zgrabi surf in zajadraj valove.',
+	'Dežek pada, dežek gre. Danes je najbolje počivati, prebrati kakšno dobro knjigo.'
+	];
+    var choices = ["Sončno", "Vetrovno", "Deževno"];
+    var sentence = senttext[userChoice] + "<p></p>";
+    var img = '<img src="' + links[userChoice] + '">';
+	output.innerHTML = sentence + img;
+ }   
+</script>
